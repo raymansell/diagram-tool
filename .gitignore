@@ -4,4 +4,5 @@ dist
 .env.*
 !.env.vars.example
 .wrangler
+.dev.vars*
 .DS_Store

@@ -9,6 +9,10 @@ export default function ChatPanel() {
 
   const handleSubmit = (e: React.FormEvent) => {
     // TBD
+    // Testing cloudflare worker
+    fetch('/api/')
+      .then((res) => res.json())
+      .then((data) => console.log(data));
     e.preventDefault();
   };
 
