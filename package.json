@@ -1,0 +1,32 @@
+{
+  "name": "diagram-tool",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/raymansell/diagram-tool#readme",
+  "bugs": {
+    "url": "https://github.com/raymansell/diagram-tool/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raymansell/diagram-tool.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "typescript": "^5.0.0"
+  }
+}
