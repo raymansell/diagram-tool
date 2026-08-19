@@ -14,14 +14,20 @@
   "author": "",
   "type": "module",
   "scripts": {
-    "dev": "vite dev",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "wrangler types && vite dev",
+    "build": "wrangler types && vite build",
+    "preview": "vite preview",
+    "agent": "node scripts/test-agent.mjs"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^4.0.43",
+    "@cloudflare/ai-chat": "^0.10.2",
     "@excalidraw/excalidraw": "^0.18.1",
+    "agents": "^0.21.0",
+    "ai": "^7.0.69",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "^1.53.0",
