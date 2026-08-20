@@ -1,0 +1,62 @@
+[
+  {
+    "id": "create-simple-01",
+    "input": "Draw a single rectangle labeled Hello",
+    "difficulty": "simple",
+    "category": "create"
+  },
+  {
+    "id": "create-simple-02",
+    "input": "Draw a circle and a square next to each other",
+    "difficulty": "simple",
+    "category": "create"
+  },
+  {
+    "id": "create-simple-03",
+    "input": "Draw a simple flowchart with Start, Process, and End boxes connected by arrows",
+    "difficulty": "simple",
+    "category": "create"
+  },
+  {
+    "id": "create-medium-01",
+    "input": "Draw a login flow: user enters credentials, system validates, if valid go to dashboard, if invalid show error",
+    "difficulty": "medium",
+    "category": "create"
+  },
+  {
+    "id": "create-medium-02",
+    "input": "Draw an entity relationship diagram for a blog: Users have many Posts, Posts have many Comments",
+    "difficulty": "medium",
+    "category": "create"
+  },
+  {
+    "id": "create-complex-01",
+    "input": "Draw an org chart for a company: CEO at top, 3 VPs reporting to CEO (Engineering, Sales, Marketing), each VP has 3 directors under them",
+    "difficulty": "hard",
+    "category": "create"
+  },
+  {
+    "id": "create-complex-02",
+    "input": "Draw a microservices architecture: API Gateway receives requests, routes to Auth Service, User Service, Order Service, and Payment Service. Each service has its own database. Order Service also calls Payment Service.",
+    "difficulty": "hard",
+    "category": "create"
+  },
+  {
+    "id": "create-complex-03",
+    "input": "Draw a complex e-commerce checkout flow with 8 steps: Cart Review, Shipping Address, Shipping Method, Payment, Order Review, Place Order, Confirmation, Email Receipt. Include error paths if payment fails.",
+    "difficulty": "hard",
+    "category": "create"
+  },
+  {
+    "id": "edge-01",
+    "input": "draw something",
+    "difficulty": "edge",
+    "category": "edge"
+  },
+  {
+    "id": "edge-02",
+    "input": "Draw a square that is also a circle",
+    "difficulty": "edge",
+    "category": "edge"
+  }
+]
