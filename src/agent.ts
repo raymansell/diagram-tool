@@ -1,14 +1,11 @@
 import {
-  streamText,
   convertToModelMessages,
-  stepCountIs,
   createUIMessageStreamResponse,
   toUIMessageStream,
 } from 'ai';
 import { createOpenAI } from '@ai-sdk/openai';
 import { AIChatAgent } from '@cloudflare/ai-chat';
-import { tools } from './tools';
-import { SYSTEM_PROMPT } from './system-prompt';
+import { streamAgent } from './agent-core';
 
 // https://developers.cloudflare.com/agents/runtime/agents-api/#agent-class
 // A Cloudflare Agent is a stateful, long lived server side object built on top of Cloudflare's
@@ -35,26 +32,13 @@ export class DesignAgent extends AIChatAgent<Env> {
     // ID, and partial JSON arguments being generated incrementally. Without streaming, you would
     // receive one complete message at the end with all the tool call information already assembled.
     // Streaming allows you to see the generation process in real-time.
-    const result = streamText({
+    const result = streamAgent({
       model: openai(this.env.OPENAI_MODEL),
-      system: SYSTEM_PROMPT,
-      //The convertToModelMessages function ensures that message history is sent to the LLM in the
+      // The convertToModelMessages function ensures that message history is sent to the LLM in the
       // specific format required by the API. It converts messages from the Cloudflare formats that
       // might be useful for UI-related things, to the format that OpenAI expects, preventing API
       // errors caused by incorrectly formatted messages.
       messages: await convertToModelMessages(this.messages),
-      tools,
-      // The stopWhen parameter controls how many times the agent loop can execute before stopping.
-      // It tells the AI SDK to perform the internal agent loop and limits the number of iterations.
-      // Without this parameter, the AI SDK would only generate once and not perform the loop automatically.
-      stopWhen: stepCountIs(5),
-      // OpenAI's strict tool calling mode requires every property in a tool
-      // input schema to be in `required` and rejects optional fields. Our
-      // modifyDiagram updates are intentionally all optional, so we turn
-      // strict mode off. We still get Zod validation locally.
-      // we are doing this on purpose to eval non compliance of the JSON schema
-      // (either because the model ignored it or because we switch LLM providers)
-      providerOptions: { openai: { strictJsonSchema: false } },
     });
 
     return createUIMessageStreamResponse({
